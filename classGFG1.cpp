@@ -1,17 +1,19 @@
 #include<iostream>
 using namespace std;
 class Rectangle{
-    public:
-    int length;
-    int width;
+    private:
 
+        int length;
+        int width;
+    
+    public:
     Rectangle(int l, int w)
     {
         length = l;
         width = w;
 
     }
-    friend int CalculateArea(Rectangle rect);
+    friend int calculateArea(Rectangle rect);
 };
 
     int calculateArea(Rectangle rect){
@@ -22,4 +24,5 @@ class Rectangle{
         Rectangle rect(5, 10);
         int area = calculateArea(rect);
         cout << "Area is: " << area << endl;
+        return 0;
     }
