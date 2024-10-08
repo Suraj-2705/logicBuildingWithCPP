@@ -41,6 +41,11 @@ void insertAtEnd(Node **head, int value){
         temp->next = nodeObj;
     }
 }
+void insertAtBeg(Node **head, int value){
+    Node *nodeObj = new Node(value);
+    nodeObj->next = *head;
+    *head = nodeObj;
+}
 int main(){
     Node * head = NULL;
     insertAtEnd(&head, 10);
@@ -48,9 +53,10 @@ int main(){
     insertAtEnd(&head, 30);
     insertAtEnd(&head, 40);
     insertAtEnd(&head, 50);
+    insertAtBeg(&head, 100);
+    insertAtBeg(&head, 200);
     
     printList(head);
     return 0;
 
 }
-
