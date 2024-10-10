@@ -56,6 +56,31 @@ void deleteFromBeginning(Node **head){
         *head = temp->next;
     }
 }
+
+void deleteFromLast(Node **head)
+{
+    if(*head == NULL)
+    {
+        cout << "No element to be deleted";
+        return;
+    }
+
+    Node *temp = *head;
+    if(temp->next == NULL)
+    {
+        delete(temp);
+        *head = NULL;
+        return;
+    }
+
+    while(temp->next->next != NULL)
+    {
+        temp = temp->next;
+    }
+
+    delete(temp->next);
+    temp->next = NULL;
+}
 int main(){
     Node * head = NULL;
     int choice, value, n;
@@ -66,7 +91,8 @@ int main(){
         cout << "2. Insert element at the end of linked list\n";
         cout << "3. Display linked list\n";
         cout << "4. Delete the element from the beginning\n";
-        cout << "5. Exit\n";
+        cout << "5. Delete the element from the last\n";
+        cout << "6. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -96,13 +122,25 @@ int main(){
                 cout << "Enter the number of elements to delete: ";
                 cin >> n;
                 cout << "Enter the value to be deleted: ";
-                for(int i = 0; i < n; i++){
-                cin >> value;
-                deleteFromBeginning(&head);
+                for(int i = 0; i < n; i++)
+                {
+                    cin >> value;
+                    deleteFromBeginning(&head);
+                }
+                break;
+
+            case 5:
+                cout << "Enter the number of elements to delete: ";
+                cin >> n;
+                cout << "Enter the values to be deleted: ";
+                for(int i = 0; i < n; i++)
+                {
+                    cin >> value;
+                    deleteFromLast(&head);
                 }
                 break;
                 
-            case 5:
+            case 6:
                 cout << "Exiting program.\n";
                 return 0;
             default:
