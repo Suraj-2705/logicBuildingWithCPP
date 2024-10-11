@@ -81,6 +81,35 @@ void deleteFromLast(Node **head)
     delete(temp->next);
     temp->next = NULL;
 }
+void deleteKthElement(Node **head, int k)
+{
+    if(k < 1)
+    {
+        cout << "The position can't be less than 1";
+        return;
+    }
+
+    if(*head == NULL)
+    {
+        cout << "No elements to delete" << endl;
+    }
+
+    Node *temp = *head;
+    for(int i = 1; i<k-1 && temp != NULL; i++)
+    {
+        temp = temp->next;
+    }
+
+    if(temp == NULL)
+    {
+        cout << "The element at given position does not exist";
+        return;
+    }
+
+    Node *x = temp->next;
+    temp->next = x->next;
+    delete(x);
+}
 int main(){
     Node * head = NULL;
     int choice, value, n;
@@ -92,7 +121,8 @@ int main(){
         cout << "3. Display linked list\n";
         cout << "4. Delete the element from the beginning\n";
         cout << "5. Delete the element from the last\n";
-        cout << "6. Exit\n";
+        cout << "6. Delete the element from the kth position\n";
+        cout << "7. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -135,12 +165,19 @@ int main(){
                 cout << "Enter the values to be deleted: ";
                 for(int i = 0; i < n; i++)
                 {
-                    cin >> value;
+                    cin >> value;  
                     deleteFromLast(&head);
                 }
                 break;
-                
             case 6:
+                int k;
+                cout << "Enter the position from which you want to delete an element: ";
+                cin >> k;
+                deleteKthElement(&head, k);
+                break;
+                
+
+            case 7:
                 cout << "Exiting program.\n";
                 return 0;
             default:
