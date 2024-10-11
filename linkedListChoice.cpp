@@ -110,6 +110,35 @@ void deleteKthElement(Node **head, int k)
     temp->next = x->next;
     delete(x);
 }
+void insertAtKthPosition(Node **head, int k, int value)
+{
+    if(k < 1)
+    {
+        cout << "The position can't be less than 1";
+        return;
+    }
+
+    if(*head == NULL)
+    {
+        cout << "Element can't be inserted" << endl;
+    }
+
+    Node *temp = *head;
+    for(int i = 1; i<k-1 && temp != NULL; i++)
+    {
+        temp = temp->next;
+    }
+
+    if(temp == NULL)
+    {
+        cout << "The specified position does not exist";
+        return;
+    }
+
+    Node *nodeObj1 = new Node(value);
+    nodeObj1->next = temp->next;
+    temp->next = nodeObj1;
+}
 int main(){
     Node * head = NULL;
     int choice, value, n;
@@ -122,7 +151,8 @@ int main(){
         cout << "4. Delete the element from the beginning\n";
         cout << "5. Delete the element from the last\n";
         cout << "6. Delete the element from the kth position\n";
-        cout << "7. Exit\n";
+        cout << "7. Insert at kth position\n";
+        cout << "8. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
 
@@ -175,9 +205,17 @@ int main(){
                 cin >> k;
                 deleteKthElement(&head, k);
                 break;
-                
-
             case 7:
+                int f;
+                cout << "Enter the position where you want to insert an element: ";
+                cin >> f;
+                cout << "Enter the value you want to insert: ";
+                cin >> value;
+                insertAtKthPosition(&head, f, value);
+                break;
+
+
+            case 8:
                 cout << "Exiting program.\n";
                 return 0;
             default:
