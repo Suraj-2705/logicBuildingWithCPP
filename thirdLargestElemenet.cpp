@@ -19,6 +19,5 @@
             }else if(arr[i]>=third){
                 third = arr[i];
             }
+                return third;
         }
-           return third;
-    }

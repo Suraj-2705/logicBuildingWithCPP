@@ -29,7 +29,7 @@ int main() {
             break;
         if(a[i]<b[j])
         {
-            c[k]=a[i++];
+             c[k]=a[i++];
         }
         else
         {

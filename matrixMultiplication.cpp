@@ -41,7 +41,7 @@ int main(){
 
 
     
-
+    
 
         //now for multiplication
 
@@ -50,7 +50,7 @@ int main(){
                 for(int k = 0; k<n; k++){
                     result[i][j] = x[i][k] * y[k][j];
                 }
-            }
+            }   
         }
         cout<<"the result of matrix multiplication is: "<<endl;
         for(int i = 0; i<m; i++){

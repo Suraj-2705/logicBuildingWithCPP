@@ -26,7 +26,7 @@ int main() {
 
     // Calculate the sum of the middle row
     for (int j = 0; j < n; ++j) {
-        rowSum += matrix[middleIndex][j];
+      rowSum += matrix[middleIndex][j];
     }
 
     // Calculate the sum of the middle column
