@@ -14,30 +14,49 @@ class Node{
         }
 };
 void insertAtBeginning(Node **head, int value){
-            Node *nodeObj = new Node(value);
-            if(*head == NULL){
-                *head = nodeObj;
-                return;
-            }
-            Node *temp = *head;
-            nodeObj->next = *head;
-            temp->prev = nodeObj;
-            *head = nodeObj;
+    Node *nodeObj = new Node(value);
+    if(*head == NULL){
+        *head = nodeObj;
+        return;
         }
-      void printList(Node * head)
-        {
-            if(head == NULL)
+    Node *temp = *head;
+    nodeObj->next = *head;
+    temp->prev = nodeObj;
+    *head = nodeObj;
+}
+
+void printList(Node * head)
+{
+    if(head == NULL)
+    {
+        cout << "No element int the list" << endl;
+    }else{
+        while(head!=NULL)
             {
-            cout << "No element int the list" << endl;
-            }else{
-                while(head!=NULL)
-                {
-                    cout << head->data << "->";
-                    head = head->next;    
-                }
-                cout << "NULL";
+                cout << head->data << "->";
+                head = head->next;    
             }
-        }  
+            cout << "NULL";
+        }
+}  
+
+void insertAtEnding(Node **head, int value){
+    Node *nodeObj = new Node(value);
+
+    if(*head == NULL){
+        *head = nodeObj;
+        return;
+    }else{
+        Node *temp = *head;
+        while(temp->next != NULL){
+            temp = temp->next;
+        }
+
+        temp->next = nodeObj;
+        nodeObj = temp;
+    }
+}
+
 int main(){
     Node *head = NULL;
     int value, n;
@@ -50,4 +69,5 @@ int main(){
     }
 
     printList(head);
+    return 0;
 }
