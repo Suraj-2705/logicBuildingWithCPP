@@ -96,6 +96,12 @@ int main(){
                 cin >> value;
                 insertAtEnding(&head, value);
             }
+
+        case 4:
+            cout << "Exiting program.\n";
+            return 0;
+        default:
+            cout << "Invalid choice. Please try again.\n";
     }
 
 }
