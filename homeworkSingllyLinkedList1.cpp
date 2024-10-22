@@ -1,26 +1,26 @@
 #include <iostream>
 using namespace std;
 
-// Node class for the singly linked list
+
 class Node {
 public:
     int data;
     Node* next;
 
-    Node(int value) {  // Constructor to initialize node
+    Node(int value) {  
         data = value;
         next = nullptr;
     }
 };
 
-// Function to insert at the beginning of the list
+
 void insertAtBeginning(Node*& head, int value) {
     Node* newNode = new Node(value);
     newNode->next = head;
     head = newNode;
 }
 
-// Function to print the singly linked list
+
 void printList(Node* head) {
     if (head == nullptr) {
         cout << "List is empty!" << endl;
@@ -34,7 +34,7 @@ void printList(Node* head) {
     cout << "NULL" << endl;
 }
 
-// Function to count the number of elements in the list
+
 int countElements(Node* head) {
     int count = 0;
     Node* temp = head;
@@ -45,7 +45,7 @@ int countElements(Node* head) {
     return count;
 }
 
-// Function to perform a linear search in the list
+
 bool linearSearch(Node* head, int key) {
     Node* temp = head;
     while (temp != nullptr) {
@@ -57,7 +57,7 @@ bool linearSearch(Node* head, int key) {
 }
 
 int main() {
-    Node* head = nullptr; // Initialize an empty list
+    Node* head = nullptr; 
     int choice, value, n;
 
     while (true) {
