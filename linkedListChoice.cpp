@@ -195,7 +195,6 @@ int main(){
                 cout << "Enter the values to be deleted: ";
                 for(int i = 0; i < n; i++)
                 {
-                    cin >> value;  
                     deleteFromLast(&head);
                 }
                 break;

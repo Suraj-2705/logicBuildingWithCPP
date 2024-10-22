@@ -57,6 +57,45 @@ void insertAtEnding(Node **head, int value){
     }
 }
 
+void deleteFromBeginning(Node **head){
+    if(*head == NULL){
+        cout << "No element to be deleted";
+        return;
+    }
+
+    Node *temp = *head;
+    if(temp->next == NULL){
+        *head = NULL;
+        delete(temp);
+    }else{
+        *head = temp->next;
+        temp->next->prev = NULL;
+        delete(temp);
+    }
+}
+
+void deleteFromEnd(Node **head){
+    if(*head == NULL){
+        cout << "No element to be deleted";
+        return;
+    }
+
+    Node *temp = *head;
+    if(temp->next == NULL){
+        *head = NULL;
+        delete(temp);
+        return;
+    }
+
+    while(temp->next != NULL)
+    {
+        temp = temp->next;
+    }
+
+    temp->prev->next = NULL;
+    delete(temp);
+}
+
 int main(){
     Node *head = NULL;
     int choice, value, n;
@@ -85,10 +124,6 @@ int main(){
             break;
         
         case 2:
-            printList(head);
-            break;
-        
-        case 3:
             cout << "Enter the number of element you want to insert in linkedlist: ";
             cin >> n;
             cout << "Enter the value: ";
@@ -96,8 +131,32 @@ int main(){
                 cin >> value;
                 insertAtEnding(&head, value);
             }
+            break;
+
+        case 3:
+            printList(head);
+            break;
 
         case 4:
+            cout << "Enter the number of elements to delete: ";
+            cin >> n;
+            cout << "Enter the values you want to delete: ";
+            for(int i = 0; i < n; i++){
+                cin >> value;
+                deleteFromBeginning(&head);
+            }
+            break;
+
+        case 5:
+            cout << "Enter the number of elements you want to delete: ";
+            cin >> n;
+            cout << "Enter the value you want to delete: ";
+            for(int i = 0; i < n; i++){
+                cin >> value;
+                deleteFromEnd(&head);
+            }
+            break;
+        case 8:
             cout << "Exiting program.\n";
             return 0;
         default:
