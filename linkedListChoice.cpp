@@ -192,7 +192,6 @@ int main(){
             case 5:
                 cout << "Enter the number of elements to delete: ";
                 cin >> n;
-                cout << "Enter the values to be deleted: ";
                 for(int i = 0; i < n; i++)
                 {
                     deleteFromLast(&head);

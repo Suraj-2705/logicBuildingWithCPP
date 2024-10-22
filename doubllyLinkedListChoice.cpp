@@ -148,11 +148,9 @@ int main(){
             break;
 
         case 5:
-            cout << "Enter the number of elements you want to delete: ";
+            cout << "Enter the number of elements you want to delete from end: ";
             cin >> n;
-            cout << "Enter the value you want to delete: ";
             for(int i = 0; i < n; i++){
-                cin >> value;
                 deleteFromEnd(&head);
             }
             break;
