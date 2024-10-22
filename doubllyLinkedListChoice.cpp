@@ -53,7 +53,7 @@ void insertAtEnding(Node **head, int value){
         }
 
         temp->next = nodeObj;
-        nodeObj = temp;
+        nodeObj->prev = temp;
     }
 }
 
@@ -91,7 +91,6 @@ void deleteFromEnd(Node **head){
     {
         temp = temp->next;
     }
-
     temp->prev->next = NULL;
     delete(temp);
 }
@@ -121,6 +120,7 @@ int main(){
                 cin>>value;
                 insertAtBeginning(&head, value);
             }
+            cout << endl;
             break;
         
         case 2:
@@ -131,10 +131,12 @@ int main(){
                 cin >> value;
                 insertAtEnding(&head, value);
             }
+            cout << endl;
             break;
 
         case 3:
             printList(head);
+            cout << endl;
             break;
 
         case 4:
@@ -145,6 +147,7 @@ int main(){
                 cin >> value;
                 deleteFromBeginning(&head);
             }
+            cout << endl;
             break;
 
         case 5:
@@ -153,9 +156,12 @@ int main(){
             for(int i = 0; i < n; i++){
                 deleteFromEnd(&head);
             }
+            cout << endl;
             break;
         case 8:
+
             cout << "Exiting program.\n";
+            cout << endl;
             return 0;
         default:
             cout << "Invalid choice. Please try again.\n";
