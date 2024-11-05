@@ -8,8 +8,10 @@ int findGCD(int divisor, int divident){
     findGCD(divident % divisor, divisor);
 }
 int main(){
-    int a = 50;
-    int b = 15;
+    int a;
+    int b;
+    cout << "Enter the numbers: ";
+    cin >> a>> b;
 int result = findGCD(a, b);
 cout << "GCD is: " << result << endl;
 }
