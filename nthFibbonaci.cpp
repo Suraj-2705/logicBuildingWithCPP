@@ -54,7 +54,7 @@ int nthFibonacci(int n) {
 
 int main() {
     int n = 14;
-    int result = nthFibonacci(n);
+    int result = nthFibonacci(n-1);
     cout << result << endl;
     return 0;
 }
